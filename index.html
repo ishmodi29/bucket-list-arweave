@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,7 +20,7 @@
 <body>
     <div class="main-content" ng-app="bucketList" ng-controller="mainController">
         <div class="container">
-            <span class="title">AR balances : {{balances}}</span>
+            <span class="title">AR balances: {{balances}}</span>
             <h1 class="text-center pb-2" style="color: #fff">Bucket List</h1>
             <div class="text-center pb-4" ng-show="status =='false'" >
                 <form class="btn-group my-4">
@@ -32,18 +31,19 @@
                 </form>
             </div>
             <div  ng-show="status == 'true'">
-                 <div class=" pb-4 ">
-                    <div class="col-md-3 pb-4 mx-auto">
-                        <input type="search" class="form-control" placeholder="Search" ng-model="search" />
-                    </div>
-                    <div class="col-md-6 pt-2 mx-auto">
-                        <form class="add-bucket" ng-submit="addBuckets(add,'uncheck')">
-                            <input type="text" class="form-control" placeholder="Add a item" ng-model="add"/>
-                            <button type="button" class="btn btn-primary" ng-click="addBuckets(add,'uncheck')">Add</button>
-                        </form>
+              <div class=" pb-4 ">
+                <div class="col-md-3 pb-4 mx-auto">
+                  <input type="search" class="form-control" placeholder="Search" ng-model="search" />
                 </div>
-            </div>
-            <div class="row bucket-item ">
+                <div class="col-md-6 pt-2 mx-auto">
+                  <form class="add-bucket" ng-submit="addBuckets(add,'uncheck')">
+                    <input type="text" class="form-control" placeholder="Add a item" ng-model="add"/>
+                    <button type="button" class="btn btn-primary" ng-click="addBuckets(add,'uncheck')">Add</button>
+                  </form>
+                </div>
+              </div>
+              <hr>
+              <div class="row bucket-item ">
                 <div class="col-lg-4 col-md-6  card  mr-auto my-1 " ng-style="{ 'background-color': x.description == true   ? '#00b8ff':'#009bd6' }"  ng-repeat="x in products | filter:search | orderBy:'-data'">
                      <div class="single-check " >
                         <span ng-style="{ 'text-decoration': x.description == true   ?'none': 'line-through' }">{{x.bucket|lowercase}}</span>
